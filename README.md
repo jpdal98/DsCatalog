@@ -1,5 +1,5 @@
 # DsCatalog
-Catálogo de vendas
+Catálogo de vendas (Em andamento)
 
 # Tecnologias utilizadas
 ## Back end
