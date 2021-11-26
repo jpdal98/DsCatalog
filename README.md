@@ -2,7 +2,7 @@
 Catálogo de vendas (Em andamento)
 
 # Modelo relacional da aplicação
-![Alt text](/relative/path/to/modelo relacional.png?raw=true "Optional Title")
+![Alt text](/relative/path/to/modelo.png?raw=true "Optional Title")
 
 # Tecnologias utilizadas
 ## Back end
