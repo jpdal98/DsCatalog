@@ -1,6 +1,9 @@
 # DsCatalog
 Catálogo de vendas (Em andamento)
 
+# Modelo relacional da aplicação
+![alt text](http:///to/modelo relacional.png)
+
 # Tecnologias utilizadas
 ## Back end
 - Java
