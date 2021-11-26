@@ -2,7 +2,7 @@
 Catálogo de vendas (Em andamento)
 
 # Modelo relacional da aplicação
-![alt text](http://url/to/modelo.png)
+![alt text](http://github.com/jpdal98/DsCatalog/to/modelo.png)
 
 # Tecnologias utilizadas
 ## Back end
