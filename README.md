@@ -25,5 +25,5 @@ Catálogo de vendas (Em andamento)
 - Banco de Dados: H2
 
 ## Padrões utilizados
-- Padrão arquitetural: MVC
+- Padrão arquitetural: Baseado no MVC
 - Padrões estruturais: DTO e Factory Method
