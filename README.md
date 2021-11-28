@@ -9,7 +9,7 @@ Catálogo de vendas (Em andamento)
 - Java
 - Spring Boot
 - Jpa / Hibernate
-- Spring Security / JWT
+- Spring Security / OAuth 2.0 / JWT
 - Maven
 - Docker
 - CI/CD com Heroku
