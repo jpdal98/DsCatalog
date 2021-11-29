@@ -1,5 +1,5 @@
 # DsCatalog
-Catálogo de vendas
+Catálogo de vendas.
 
 # Modelo relacional da aplicação
 ![modelo](https://user-images.githubusercontent.com/37542212/143661579-24ac552f-108b-43aa-ad91-0e2811c3b3b6.png)
