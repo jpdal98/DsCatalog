@@ -21,8 +21,8 @@ Catálogo de vendas. :hourglass_flowing_sand:
 ## Implantação em desenvolvimento
 - Banco de Dados: H2 :heavy_check_mark:
 
-## Implantação em produção :hourglass_flowing_sand:
-- Banco de Dados: PostgreSQL
+## Implantação em produção 
+- Banco de Dados: PostgreSQL :hourglass_flowing_sand:
 
 ## Padrões utilizados
 - Padrão arquitetural: REST :heavy_check_mark:
