@@ -11,15 +11,10 @@ Catálogo de vendas (Em andamento)
 - Jpa / Hibernate
 - Spring Security / OAuth 2.0 e Token JWT
 - Maven
-- Docker
-- CI/CD com Heroku
 
 ## Teste automatizados
 - Unidade
 - Integração
-
-## Implantação em produção
-- Banco de Dados: PostgreSQL
 
 ## Implantação em desenvolvimento
 - Banco de Dados: H2
