@@ -10,7 +10,7 @@ Catálogo de vendas. :hourglass_flowing_sand:
 - Spring Boot :heavy_check_mark:
 - Jpa / Hibernate :heavy_check_mark:
 - Spring Security / OAuth 2.0 e Token JWT :heavy_check_mark:
-- Maven
+- Maven :heavy_check_mark:
 - Docker :hourglass_flowing_sand:
 - CI/CD com Heroku :hourglass_flowing_sand:
 
