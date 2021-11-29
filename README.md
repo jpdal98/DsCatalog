@@ -8,9 +8,11 @@ Catálogo de vendas.
 ## Back end
 - Java
 - Spring Boot
-- Jpa / Hibernate
+- Jpa/Hibernate
 - Spring Security / OAuth 2.0 e Token JWT
 - Maven
+- Docker
+- CI/CD com Heroku
 
 ## Teste automatizados
 - Unidade
@@ -18,6 +20,9 @@ Catálogo de vendas.
 
 ## Implantação em desenvolvimento
 - Banco de Dados: H2
+
+## Implantação em produção
+- Banco de Dados: PostgreSQL
 
 ## Padrões utilizados
 - Padrão arquitetural: REST
