@@ -14,16 +14,16 @@ Catálogo de vendas. :hourglass_flowing_sand:
 - Docker :hourglass_flowing_sand:
 - CI/CD com Heroku :hourglass_flowing_sand:
 
-## Teste automatizados
+## Teste automatizados :heavy_check_mark:
 - Unidade :heavy_check_mark:
 - Integração :heavy_check_mark:
 
-## Implantação em desenvolvimento
+## Implantação em desenvolvimento :heavy_check_mark:
 - Banco de Dados: H2 :heavy_check_mark:
 
 ## Implantação em produção 
 - Banco de Dados: PostgreSQL :hourglass_flowing_sand:
 
-## Padrões utilizados
+## Padrões utilizados :heavy_check_mark:
 - Padrão arquitetural: REST :heavy_check_mark:
 - Padrões estruturais: DTO e Factory Method :heavy_check_mark:
