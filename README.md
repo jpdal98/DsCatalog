@@ -11,7 +11,7 @@ Sistema baseado em um Catálogo de vendas. Esse Sistema é o trabalho final do m
 - Jpa / Hibernate :heavy_check_mark:
 - Spring Security / OAuth 2.0 e Token JWT :heavy_check_mark:
 - Maven :heavy_check_mark:
-- Conteiners com Docker :hourglass_flowing_sand:
+- Docker :hourglass_flowing_sand:
 - CI/CD com Heroku, AWS e GitHub Actions :hourglass_flowing_sand:
 
 ## Teste automatizados
