@@ -1,4 +1,4 @@
-# DsCatalog :hourglass_flowing_sand:
+# DsCatalog
 Sistema baseado em um Catálogo de vendas. Esse Sistema é o trabalho final do módulo de back end do Bootcamp de Spring React da DevSuperior. (Em desenvolvimento)
 
 # Modelo relacional da aplicação
