@@ -12,7 +12,8 @@ Sistema baseado em um Catálogo de vendas. Esse Sistema é o trabalho final do B
 - Spring Security / OAuth 2.0 e Token JWT :heavy_check_mark:
 - Maven :heavy_check_mark:
 - Docker :hourglass_flowing_sand:
-- CI/CD com Heroku, AWS e GitHub Actions :hourglass_flowing_sand:
+- CI/CD com GitHub Actions :hourglass_flowing_sand:
+- Implatação na nuvem com Heroku e AWS :hourglass_flowing_sand:
 
 ## Teste automatizados
 - Unidade :heavy_check_mark:
