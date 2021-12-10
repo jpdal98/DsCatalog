@@ -23,7 +23,7 @@ Sistema baseado em um Catálogo de vendas. Esse Sistema é o trabalho final do B
 - Banco de Dados: H2 :heavy_check_mark:
 
 ## Implantação em produção 
-- Banco de Dados: PostgreSQL :hourglass_flowing_sand:
+- Banco de Dados: PostgreSQL :heavy_check_mark:
 
 ## Padrões utilizados
 - Padrão arquitetural: REST :heavy_check_mark:
