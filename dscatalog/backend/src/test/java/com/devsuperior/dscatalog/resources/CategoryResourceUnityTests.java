@@ -17,7 +17,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
@@ -29,9 +30,11 @@ import com.devsuperior.dscatalog.factory.CategoryFactory;
 import com.devsuperior.dscatalog.services.CategoryService;
 import com.devsuperior.dscatalog.services.exceptions.DataBaseException;
 import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
+import com.devsuperior.dscatalog.utils.TokenUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@WebMvcTest(CategoryResource.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class CategoryResourceUnityTests {
 
 
@@ -44,11 +47,16 @@ public class CategoryResourceUnityTests {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
+	@Autowired
+	private TokenUtil tokenUtil;
+	
 	private Long existingId;
 	private Long nonExistingId;
 	private Long dependentId;
 	private CategoryDTO categoryDto;
 	private PageImpl<CategoryDTO> page;
+	private String username;
+	private String password;
 	
 	@BeforeEach
 	public void setup() throws Exception {
@@ -58,6 +66,8 @@ public class CategoryResourceUnityTests {
 		dependentId = 3L;
 		categoryDto = CategoryFactory.createCategoryDTO();
 		page = new PageImpl<>(List.of(categoryDto));
+		username = "maria@gmail.com";
+		password = "123456";
 		
 		Mockito.when(service.insert(any())).thenReturn(categoryDto);
 		
@@ -77,9 +87,11 @@ public class CategoryResourceUnityTests {
 	@Test
 	public void insertShouldReturnNoCreatedAndProductDTO() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		String jsonBody = objectMapper.writeValueAsString(categoryDto);
 		
 		ResultActions result = mockMvc.perform(post("/categories")
+				.header("Authorization", "Bearer " + accessToken)
 				.content(jsonBody)
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON));
@@ -91,22 +103,32 @@ public class CategoryResourceUnityTests {
 	
 	@Test
 	public void deleteShouldReturnNoContentWhenIdExists() throws Exception {
-		ResultActions result = mockMvc.perform(delete("/categories/{id}", existingId));
+		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
+		ResultActions result = mockMvc.perform(delete("/categories/{id}", existingId)
+				.header("Authorization", "Bearer " + accessToken));
+		
 		result.andExpect(status().isNoContent());
 	}
 	
 	@Test
 	public void deleteShouldReturnNotFoundWhenIdDoesNotExists() throws Exception {
-		ResultActions result = mockMvc.perform(delete("/categories/{id}", nonExistingId));
+		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
+		ResultActions result = mockMvc.perform(delete("/categories/{id}", nonExistingId)
+				.header("Authorization", "Bearer " + accessToken));
+		
 		result.andExpect(status().isNotFound());
 	}
 	
 	@Test
 	public void updateShouldReturnProductDTOWhenIdExists() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		String jsonBody = objectMapper.writeValueAsString(categoryDto);
 		
 		ResultActions result = mockMvc.perform(put("/categories/{id}", existingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.content(jsonBody)
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON));
@@ -119,9 +141,11 @@ public class CategoryResourceUnityTests {
 	@Test
 	public void updateShouldReturnNotFoundWhenIdDoesNotExists() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		String jsonBody = objectMapper.writeValueAsString(categoryDto);
 		
 		ResultActions result = mockMvc.perform(put("/categories/{id}", nonExistingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.content(jsonBody)
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON));
@@ -132,8 +156,10 @@ public class CategoryResourceUnityTests {
 	@Test
 	public void findAllShouldReturnPage() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		ResultActions result = mockMvc.perform(get("/categories")
-								.accept(MediaType.APPLICATION_JSON));
+				.header("Authorization", "Bearer " + accessToken)
+				.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isOk());
 		
@@ -141,7 +167,10 @@ public class CategoryResourceUnityTests {
 	
 	@Test
 	public void findByIdShouldReturnProductWhenIdExists() throws Exception {
+		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		ResultActions result = mockMvc.perform(get("/categories/{id}", existingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isOk());
@@ -151,7 +180,10 @@ public class CategoryResourceUnityTests {
 	
 	@Test
 	public void findByIdShouldReturnNotFoundWhenIdDoesNotExists() throws Exception {
+		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		ResultActions result = mockMvc.perform(get("/categories/{id}", nonExistingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isNotFound());

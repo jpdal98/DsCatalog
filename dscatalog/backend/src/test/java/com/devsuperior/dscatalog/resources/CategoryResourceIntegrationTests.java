@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dscatalog.dtos.CategoryDTO;
 import com.devsuperior.dscatalog.factory.CategoryFactory;
+import com.devsuperior.dscatalog.utils.TokenUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
@@ -30,10 +31,15 @@ public class CategoryResourceIntegrationTests {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
+	@Autowired
+	private TokenUtil tokenUtil;
+	
 	private Long existingId;
 	private Long nonExistingId;
 	private Long countTotalCategories;
 	private CategoryDTO categoryDto;
+	private String username;
+	private String password;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -41,15 +47,19 @@ public class CategoryResourceIntegrationTests {
 		nonExistingId = 1000L;
 		countTotalCategories = 4L;
 		categoryDto = CategoryFactory.createCategoryDTO(); 
+		username = "maria@gmail.com";
+		password = "123456";
 	}
 	
 	@Test
 	public void updateShouldReturnCategoryDTOWhenIdExists() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		String jsonBody = objectMapper.writeValueAsString(categoryDto);
 		
 		ResultActions result = 
 				mockMvc.perform(put("/categories/{id}", existingId)
+					.header("Authorization", "Bearer " + accessToken)
 					.content(jsonBody)
 					.contentType(MediaType.APPLICATION_JSON)
 					.accept(MediaType.APPLICATION_JSON));
@@ -62,9 +72,11 @@ public class CategoryResourceIntegrationTests {
 	@Test
 	public void updateShouldReturnNotFoundWhenIdDoesNotExists() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		String jsonBody = objectMapper.writeValueAsString(categoryDto);
 		
 		ResultActions result = mockMvc.perform(put("/categories/{id}", nonExistingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.content(jsonBody)
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON));
@@ -75,8 +87,10 @@ public class CategoryResourceIntegrationTests {
 	@Test
 	public void findAllShouldReturnSortedPageWhenSortByName() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		ResultActions result = mockMvc.perform(get("/categories?page=0&size=4&sort=name,ASC")
-									.accept(MediaType.APPLICATION_JSON));
+				.header("Authorization", "Bearer " + accessToken)
+				.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$.content").exists());
@@ -90,8 +104,10 @@ public class CategoryResourceIntegrationTests {
 	@Test
 	public void findByIdShouldReturnCategoryDTOWhenIdExists() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		ResultActions result = mockMvc.perform(get("/categories/{id}", existingId)
-								.accept(MediaType.APPLICATION_JSON));
+				.header("Authorization", "Bearer " + accessToken)				
+				.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$.id").value(existingId));
@@ -101,8 +117,10 @@ public class CategoryResourceIntegrationTests {
 	@Test
 	public void findByIdShouldReturnNotFoundWhenIdDoesNotExists() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
 		ResultActions result = mockMvc.perform(get("/categories/{id}", nonExistingId)
-								.accept(MediaType.APPLICATION_JSON));
+				.header("Authorization", "Bearer " + accessToken)				
+				.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isNotFound());
 	}
