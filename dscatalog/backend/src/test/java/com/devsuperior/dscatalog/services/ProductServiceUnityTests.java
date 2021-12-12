@@ -1,5 +1,7 @@
 package com.devsuperior.dscatalog.services;
 
+import static org.mockito.ArgumentMatchers.any;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -63,6 +65,7 @@ public class ProductServiceUnityTests {
 		page = new PageImpl<>(List.of(product));
 		
 		Mockito.when(productRepository.findAll((Pageable)ArgumentMatchers.any())).thenReturn(page);
+		Mockito.when(productRepository.find(any(), any(), any())).thenReturn(page);
 		
 		Mockito.when(productRepository.save(ArgumentMatchers.any())).thenReturn(product);
 		
@@ -130,10 +133,9 @@ public class ProductServiceUnityTests {
 		
 		Pageable pageable = PageRequest.of(0, 10);
 		
-		Page<ProductDTO> result = service.findAllPaged(pageable);
+		Page<ProductDTO> result = service.findAllPaged(0L, "", pageable);
 		
 		Assertions.assertNotNull(result);
-		Mockito.verify(productRepository, Mockito.times(1)).findAll(pageable);
 	}
 	
 	@Test 

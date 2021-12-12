@@ -63,7 +63,7 @@ public class ProductResourceUnityTests {
 		Mockito.when(service.update(eq(existingId), any())).thenReturn(productDto);
 		Mockito.when(service.update(eq(nonExistingId), any())).thenThrow(ResourceNotFoundException.class);
 		
-		Mockito.when(service.findAllPaged(any())).thenReturn(page);	
+		Mockito.when(service.findAllPaged(any(), any(), any())).thenReturn(page);	
 		Mockito.when(service.findById(existingId)).thenReturn(productDto);
 		Mockito.when(service.findById(nonExistingId)).thenThrow(ResourceNotFoundException.class);
 		
