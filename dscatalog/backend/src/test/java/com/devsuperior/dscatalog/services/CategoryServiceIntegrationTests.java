@@ -88,7 +88,7 @@ public class CategoryServiceIntegrationTests {
 	}
 	
 	@Test
-	public void findByIdShouldReturnProductDTOWhenIdExists() {
+	public void findByIdShouldReturnCategoryDTOWhenIdExists() {
 		
 		CategoryDTO result = service.findById(existingId);
 		

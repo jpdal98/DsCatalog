@@ -25,7 +25,7 @@ Sistema baseado em um Catálogo de vendas. Esse Sistema é o trabalho final do B
 - Banco de Dados: PostgreSQL :heavy_check_mark:
 
 ## Implatação em nuvem
-- Heroku e AWS :hourglass_flowing_sand:
+- Heroku e AWS (IAM, EC2, Elastic Beanstalk, RDS e S3) :hourglass_flowing_sand:
 
 ## Padrões utilizados
 - Padrão arquitetural: REST :heavy_check_mark:
