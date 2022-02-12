@@ -5,7 +5,7 @@ Sistema baseado em um Catálogo de vendas. Esse Sistema é o trabalho final do B
 ![modelo](https://user-images.githubusercontent.com/37542212/143661579-24ac552f-108b-43aa-ad91-0e2811c3b3b6.png)
 
 # Tecnologias utilizadas
-## Back end
+## Back-end
 - Java :heavy_check_mark:
 - Spring Boot :heavy_check_mark:
 - Spring Data / Jpa e Hibernate :heavy_check_mark:
