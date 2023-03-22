@@ -6,28 +6,22 @@ Sistema baseado em um Catálogo de vendas. Esse Sistema é o trabalho final do B
 
 # Tecnologias utilizadas
 ## Back-end:
-- Java :heavy_check_mark:
-- Spring Boot :heavy_check_mark:
-- Spring Data / Jpa e Hibernate :heavy_check_mark:
-- Spring Security / OAuth 2.0 e Token JWT :heavy_check_mark:
-- Maven :heavy_check_mark:
+- Java
+- Spring Boot
+- Spring Data / Jpa e Hibernate
+- Spring Security / OAuth 2.0 e Token JWT
+- Maven
 
 ## Teste automatizados:
-- Unidade :heavy_check_mark:
-- Integração :heavy_check_mark:
+- Unidade
+- Integração
 
 ## Implantação em desenvolvimento:
-- Banco de Dados: H2 :heavy_check_mark:
+- Banco de Dados: H2
 
 ## Implantação em produção: 
-- Banco de Dados: PostgreSQL :heavy_check_mark:
-
-## CI/CD e Implatação em nuvem:
-- Docker :hourglass_flowing_sand:
-- GitHub Actions :hourglass_flowing_sand:
-- Heroku :hourglass_flowing_sand:
-- AWS (IAM, EC2, Elastic Beanstalk, RDS e S3) :hourglass_flowing_sand:
+- Banco de Dados: PostgreSQL
 
 ## Padrões utilizados:
-- Padrão arquitetural: REST :heavy_check_mark:
-- Padrões estruturais: DTO e Factory Method :heavy_check_mark:
+- Padrão arquitetural: REST
+- Padrões estruturais: DTO e Factory Method
